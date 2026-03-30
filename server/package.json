@@ -1,0 +1,33 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "tsx index.ts",
+    "build:compile": "tsup",
+    "build:pkg": "npx @yao-pkg/pkg cjs-dist/index.cjs --target node20-macos-arm64 --output ../src-tauri/binaries/server-aarch64-apple-darwin",
+    "build:sidecar": "npm run build:compile && npm run build:pkg"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mammoth": "^1.12.0",
+    "multer": "^1.4.5-lts.1",
+    "pdf-lib": "^1.17.1",
+    "puppeteer-core": "^24.40.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/multer": "^1.4.12",
+    "@types/uuid": "^10.0.0",
+    "@vercel/ncc": "^0.38.0",
+    "@yao-pkg/pkg": "^6.0.0",
+    "puppeteer": "^24.40.0",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
+  }
+}

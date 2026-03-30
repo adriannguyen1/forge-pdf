@@ -1,0 +1,15 @@
+Mozilla Public License Version 2.0
+
+LibreOffice is licensed under the Mozilla Public License, v. 2.0.
+
+LibreOffice is NOT bundled with Forge PDF. Users must install it
+separately from https://www.libreoffice.org/download/ if they need
+DOC or PPT conversion support.
+
+Copyright (C) The Document Foundation
+
+The full text of the MPL 2.0 can be found at:
+https://www.mozilla.org/en-US/MPL/2.0/
+
+For complete license terms, source code, and contributor information,
+visit: https://www.libreoffice.org/about-us/licenses/

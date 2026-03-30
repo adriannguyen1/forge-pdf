@@ -1,0 +1,17 @@
+{
+  "name": "forge-pdf",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n client,server \"cd client && npm run dev\" \"cd server && npm run dev\"",
+    "build:client": "cd client && npm run build",
+    "build:server": "node scripts/build-sidecar.js",
+    "copy:chromium": "node scripts/copy-chromium.js",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "npm run build:client && npm run build:server && npm run copy:chromium && tauri build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "concurrently": "^9.0.0"
+  }
+}

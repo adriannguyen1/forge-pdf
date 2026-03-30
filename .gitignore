@@ -1,0 +1,17 @@
+node_modules/
+dist/
+
+# Tauri build artifacts
+src-tauri/target/
+src-tauri/resources/chromium/
+src-tauri/binaries/
+
+# Server build artifacts
+server/ncc-dist/
+server/cjs-dist/
+
+# Uploads (dev temp files)
+server/uploads/
+
+# OS files
+.DS_Store

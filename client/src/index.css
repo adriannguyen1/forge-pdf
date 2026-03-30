@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  background: #0f1117;
+  color: #e5e7eb;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* react-pdf annotation layer fix */
+.react-pdf__Page__annotations {
+  display: none;
+}
+.react-pdf__Page__textContent {
+  display: none;
+}
