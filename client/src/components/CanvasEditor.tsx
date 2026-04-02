@@ -5,7 +5,7 @@ import type { CanvasElement, CanvasElementBase, Snippet, SnippetElement, TextEle
 import { v4 as uuidv4 } from 'uuid';
 import toast from 'react-hot-toast';
 import { storeFileBytes, getOrCreateBlobUrl } from '../stores/fileStore';
-import { API_BASE } from '../utils/api';
+import { getApiBase } from '../utils/api';
 import { convertImageToPdfTight } from '../services/imageConverter';
 
 
@@ -1890,7 +1890,7 @@ function SnippetPreview({ snippet, targetWidth, targetHeight, cropInset, isCropp
   isCropping?: boolean;
   cropBoxOverride?: { x: number; y: number; width: number; height: number };
 }) {
-  const pdfUrl = getOrCreateBlobUrl(snippet.fileId) || `${API_BASE}/api/files/${snippet.fileId}/pdf`;
+  const pdfUrl = getOrCreateBlobUrl(snippet.fileId) || `${getApiBase()}/api/files/${snippet.fileId}/pdf`;
 
   // Use baked override from previous crops if present, otherwise snippet original
   const cropBox = cropBoxOverride || snippet.cropBox;

@@ -4,7 +4,7 @@ import { useAppStore } from '../stores/useAppStore';
 import { v4 as uuidv4 } from 'uuid';
 import toast from 'react-hot-toast';
 import { getOrCreateBlobUrl } from '../stores/fileStore';
-import { API_BASE } from '../utils/api';
+import { getApiBase } from '../utils/api';
 
 interface Rect {
   id: string;
@@ -55,7 +55,7 @@ export default function SnippetCropper() {
   if (!snippetCropperPage) return null;
 
   const { fileId, fileName, pageIndex } = snippetCropperPage;
-  const pdfUrl = getOrCreateBlobUrl(fileId) || `${API_BASE}/api/files/${fileId}/pdf`;
+  const pdfUrl = getOrCreateBlobUrl(fileId) || `${getApiBase()}/api/files/${fileId}/pdf`;
 
   const getRelativePos = (e: React.PointerEvent) => {
     const rect = containerRef.current?.getBoundingClientRect();

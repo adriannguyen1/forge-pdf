@@ -3,7 +3,7 @@ import { useAppStore } from '../stores/useAppStore';
 import PageThumbnail from './PageThumbnail';
 import { v4 as uuidv4 } from 'uuid';
 import { getOrCreateBlobUrl } from '../stores/fileStore';
-import { API_BASE } from '../utils/api';
+import { getApiBase } from '../utils/api';
 
 export default function PageGrid() {
   const files = useAppStore((s) => s.files);
@@ -29,7 +29,7 @@ export default function PageGrid() {
     );
   }
 
-  const pdfUrl = getOrCreateBlobUrl(selectedFile.id) || `${API_BASE}/api/files/${selectedFile.id}/pdf`;
+  const pdfUrl = getOrCreateBlobUrl(selectedFile.id) || `${getApiBase()}/api/files/${selectedFile.id}/pdf`;
   const pageIndices = Array.from({ length: selectedFile.pageCount }, (_, i) => i);
 
   const allSelected = pageIndices.every((i) =>

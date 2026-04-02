@@ -20,7 +20,7 @@ import { PDFDocument } from 'pdf-lib';
 import { useAppStore } from '../stores/useAppStore';
 import { storeFileBytes } from '../stores/fileStore';
 import { convertImageToPdf } from '../services/imageConverter';
-import { API_BASE } from '../utils/api';
+import { getApiBase } from '../utils/api';
 
 interface MergeFile {
   id: string;
@@ -188,8 +188,8 @@ export default function MergeModal({ onClose }: Props) {
           // Send to server for conversion, get PDF bytes back
           const formData = new FormData();
           formData.append('file', item.file);
-          const res = await axios.post(`${API_BASE}/api/upload`, formData, { responseType: 'json' });
-          const pdfResp = await axios.get(`${API_BASE}/api/files/${res.data.fileId}/pdf`, { responseType: 'arraybuffer' });
+          const res = await axios.post(`${getApiBase()}/api/upload`, formData, { responseType: 'json' });
+          const pdfResp = await axios.get(`${getApiBase()}/api/files/${res.data.fileId}/pdf`, { responseType: 'arraybuffer' });
           pdfBytesList.push(pdfResp.data);
         }
       }

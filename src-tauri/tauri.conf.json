@@ -20,7 +20,7 @@
       }
     ],
     "security": {
-      "csp": "default-src 'self'; connect-src 'self' http://localhost:*; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' blob: data:"
+      "csp": "default-src 'self' blob: data:; script-src 'self' blob: https://unpkg.com; connect-src 'self' blob: http://localhost:* https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' blob: data:; worker-src 'self' blob: https://unpkg.com; frame-src 'self' blob:"
     }
   },
   "bundle": {

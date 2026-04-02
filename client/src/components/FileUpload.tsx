@@ -6,7 +6,7 @@ import { useAppStore } from '../stores/useAppStore';
 import { storeFileBytes } from '../stores/fileStore';
 import { getPdfMetadata } from '../services/pdfUtils';
 import { convertImageToPdf } from '../services/imageConverter';
-import { API_BASE } from '../utils/api';
+import { getApiBase } from '../utils/api';
 
 export default function FileUpload() {
   const addFile = useAppStore((s) => s.addFile);
@@ -40,9 +40,9 @@ export default function FileUpload() {
         } else if (needsServer) {
           const formData = new FormData();
           formData.append('file', file);
-          const { data } = await axios.post(`${API_BASE}/api/upload`, formData);
+          const { data } = await axios.post(`${getApiBase()}/api/upload`, formData);
           // Fetch the converted PDF bytes back so all files live in the local store
-          const pdfResp = await axios.get(`${API_BASE}/api/files/${data.fileId}/pdf`, { responseType: 'arraybuffer' });
+          const pdfResp = await axios.get(`${getApiBase()}/api/files/${data.fileId}/pdf`, { responseType: 'arraybuffer' });
           storeFileBytes(data.fileId, pdfResp.data);
           addFile({ id: data.fileId, fileName: data.fileName, pageCount: data.pageCount });
           toast.success(`Uploaded ${data.fileName} (${data.pageCount} pages)`);
