@@ -43,8 +43,8 @@ jobs:
       - name: Build client
         run: npm run build:client
 
-      - name: Remove client node_modules before Tauri build
-        run: rm -rf client/node_modules
+      - name: Copy client dist to clean root dist folder
+        run: cp -r client/dist dist
         shell: bash
 
       - name: Build server sidecar
