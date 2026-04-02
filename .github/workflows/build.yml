@@ -56,6 +56,10 @@ jobs:
       - name: Copy Chromium to resources
         run: node scripts/copy-chromium.js
 
+      - name: Remove all node_modules before Tauri build
+        run: rm -rf node_modules client/node_modules server/node_modules
+        shell: bash
+
       - name: Install Tauri CLI
         run: npm install -g @tauri-apps/cli@^2
 
