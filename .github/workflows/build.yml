@@ -43,6 +43,10 @@ jobs:
       - name: Build client
         run: npm run build:client
 
+      - name: Remove client node_modules before Tauri build
+        run: rm -rf client/node_modules
+        shell: bash
+
       - name: Build server sidecar
         run: node scripts/build-sidecar.js
 
