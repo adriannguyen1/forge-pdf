@@ -4,8 +4,8 @@ import { pdfjs } from 'react-pdf'
 import './index.css'
 import App from './App.tsx'
 
-// Use local worker file (copied by vite-plugin-static-copy) instead of CDN
-pdfjs.GlobalWorkerOptions.workerSrc = new URL('/pdf.worker.min.mjs', import.meta.url).href
+// Use local worker file from public/ folder
+pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs'
 
 async function init() {
   // In Tauri, fetch the dynamic server port before rendering
